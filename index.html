@@ -4,10 +4,38 @@
 	<meta charset="utf-8">
 	<title>Akira_k</title>
 	<style>
-		body{
+		body,div,nav,ul,li{
                      margin:0;
 		     padding:0;
 		         background-color: pink;
+		}
+		nav{
+			height:50px;
+			border-bottom:1px solid #fff;
+		}
+		nav .logo{
+			margin-left:50px;
+			line-height:50px;
+			letter-spacing: 1px;
+		}
+		nav .navbar{
+			list-style:none;
+			float:right;
+		}
+		nav .navbar li{
+			display:inline-block;
+			height:50px;
+			text-align:center;
+			padding:auto 20px;
+		}
+		nav .navbar li:hover{
+			background-color:green;
+			color:#fff;
+		}
+		nav .navbar li a{
+			line-height:50px;
+			text-decoration:none;
+			font-size: 20px;
 		}
 		.inner{
 			text-align:center;
@@ -24,16 +52,28 @@
 		.btn:hover{
 			background-color:green;
 		}
+		.inner .btn{
+			margin-top:50px;
+		}
 	</style>
 </head>
 <body>
 	<!-- 页头  -->
     <header>
+	    <nav>
+		    <div class="logo">Akira 个人博客</div>
+		    <ul class="navbar">
+			    <li><a href="#">首页</a></li>
+			    <li><a href="#">书山有路</a></li>
+			    <li><a href="#">联系我</a></li>
+		    </ul>
+	    </nav>
+	    
         <div id="banner">
             <div class="inner">
                <h1>Akira_k</h1>
                <p class="sub-heading">就算路不坦荡也要做自己的太阳,梦的方向叫做闯... </p>
-		    <button class="btn">了解我</button>
+	       <button class="btn">了解我</button>
             </div>
         </div>
     </header>
