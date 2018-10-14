@@ -1,0 +1,262 @@
+       body,div,nav,section,h1,h2,h3,p,span{
+       	padding: 0;
+       	margin: 0;
+       }
+       ul,li,ol,dl{
+          list-style: none;
+          margin: 0;
+          padding: 0;
+       }
+       a{
+       	text-decoration: none;
+       }
+       .hr{
+       	width: 100%;
+       	height: 1px;
+       	background-color: rgba(0,0,0,0.2);
+       	margin:10px auto;
+       }
+       h1,h2,h3{
+       	font-weight: normal;
+       	color:rgb(59,89,152);
+       }
+       body{
+       	font-family: "微软雅黑";
+       	background-color:#0b0a0a;
+       }
+       nav{
+       	margin: 10px 20px 10px 0px;
+        width: 100%;
+
+       }
+       nav .nav_btn li{
+        width:100%;
+       	box-sizing: border-box;
+       	border-bottom:1px solid #fff;
+       	border-left:1px solid #fff;
+       	border-right:1px solid #fff;
+       	box-sizing: border-box;
+       }
+       nav .nav_btn li.active{
+       	background-color:#fff;
+       }
+       nav .nav_btn li span{
+       	display: block;
+       	width:78px;
+       	height:78px;
+        font-size: 40px;        
+        padding:15px;
+        margin-top: -1px;
+        color:rgb(59,89,152);
+        box-sizing: border-box;
+       }
+       nav .nav_btn li:hover{
+       	background-color:#fff;
+       }
+       nav .nav_btn li:first-child{
+       	border-top: 1px solid #fff;
+       }
+       .nav_btn_bottom{
+       	margin-top: 25px;
+       	width: 100%;
+       }
+       .nav_btn_bottom li{
+       	width: 100%;
+       	box-sizing: border-box;
+       	border-bottom:1px solid #fff;
+       	border-left:1px solid #fff;
+       	border-right:1px solid #fff;
+       	background-color: rgba(255,255,255,0.04);
+       }
+       .nav_btn_bottom li span{
+       	width:78px;
+       	height:78px;
+        font-size: 30px;
+        color: #fff;
+        padding: 18px;
+       }
+       .nav_btn_bottom li:first-child{
+       	border-top: 1px solid #fff;
+       }
+       .content_profile{      
+       	height: 575px;
+       	padding: 10px;
+        margin-top:10px;
+       	-webkit-box-sizing: border-box;
+       	-moz-box-sizing: border-box;
+       	box-sizing: border-box;
+       	background-color: rgba(255,255,255,0.9);
+       	overflow:auto;
+       }
+       .profile_title{
+       	margin-bottom: 20px;
+       }
+       .profile_left{
+       	width: 45%;
+       	float: left;
+       	margin-right: 10px;
+       }
+       .profile_left .tit{
+       	color: rgb(59,89,152);
+       	padding-left: 10px;
+       }
+       .profile_left .tit i{
+       	margin-right:5px;
+       }
+       .profile_left ul{
+       	margin-bottom:50px;
+       }
+       .profile_left ul li{
+         line-height: 30px;
+         text-align: left;
+         border-bottom: 1px solid rgba(0,0,0,0.07);
+       }
+       .profile_left ul li:last-child{
+       	border-bottom: none;
+       }
+       .profile_left p{
+         color: #666;
+         text-indent: 2em;
+         line-height: 1.5em;
+         font-size: 14px; 
+         margin-bottom:20px; 
+       }
+       .profile_left ul li span{
+       	font-size: 14px;
+       	color: #666;
+       	display: inline-block;
+       	width: 100px;
+       }
+       .profile_right{
+        width: 50%;
+        float: right;
+       }
+       .profile_img{
+       	width: 100%;
+       }
+       .profile_img img{
+       	display: none;
+       	width: 100%;
+       	height: auto;
+       }
+       .profile_img img.active{
+       	display: block;
+        filter: alpha(opacity:0);
+        opacity: 0;
+       }
+
+       .profile_page{
+       	 height: 575px;
+       	 box-sizing: border-box;
+       	 background-color:rgb(59,89,152);
+       	 color: rgba(255,255,255,0.4);
+       	 text-align: center;
+       	 font-size: 14px;
+         
+         margin-top:10px;
+       	 padding:40px 10px 10px 10px;
+       }
+       .profile_page h2{
+       	color: rgba(255,255,255,0.4);
+       	font-size: 20px;
+       } 
+       .profile_page p.pp{
+          text-align: left;
+          line-height: 2em;
+          text-indent: 2em;
+       }
+       .profile_page .mine_pic{
+       	text-align: center;
+       	margin:0px auto 20px;
+       	width: 170px;
+       	height: 170px;
+       	border: 10px solid rgba(255,255,255,0.3);
+       	border-radius: 50%;
+       }
+       .mine_pic img{
+       	width: 150px;
+       	height: 150px;
+        border-radius: 50%; 
+       }
+       .profile_page .other_link ul{
+       	margin-top: 20px;
+
+       }
+       .other_link ul li{
+       	display: inline-block;
+       	width: 50px;
+       	height: 50px;
+       	margin:0 1px;
+       	box-sizing: border-box;
+       	border: 1px solid #fff;
+       }
+
+       .content_profile{
+       	display:none; 
+       }
+
+       #resume .profile_left li{
+        position: relative;
+       }
+       #resume .profile_left .p_name{
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+        font-size: 12px;
+       }
+       #resume .profile_left .p_progress{
+        position: absolute;
+        right:-30px;
+        top: 0;
+        font-size: 12px;
+        color: #b92525;
+       }
+       #resume .profile_right .item-group{
+        width: 100%;
+       }
+       #resume .profile_right .item{
+        width: 100%;
+        margin:0px auto;
+        padding: 15px;
+       }
+       #resume .profile_right .item:nth-child(1){
+        background-color: rgba(0,255,0,0.1);
+       }
+       #resume .profile_right .item:nth-child(2){
+        background-color: rgba(255,0,0,0.1);
+       }
+       #resume .profile_right .item:nth-child(3){
+        background-color: rgba(0,0,255,0.1);
+       }
+       #resume .profile_right .item:nth-child(4){
+        background-color: rgba(0,255,0,0.1);
+       }
+       #resume .item .item_img img{
+        width:330px;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        background-color: transparent;
+       }
+       #resume .item .item_description p{
+        line-height: 25px;
+        font-size: 14px;
+        text-indent: 2em;
+        background-color: transparent;
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
