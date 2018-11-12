@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Akira&#39;s Blog - 愿我一生温暖纯良，不舍爱与担当！</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,Blog,&#39;web前端&#39;,&#39;前端笔记&#39;,"> 
+    <meta name="description" content="愿我一生温暖纯良，不舍爱与担当！,Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
+    <meta name="author" content="Akira"> 
+    <link rel="alternative" href="atom.xml" title="Akira&#39;s Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>十一月 12, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h2 id="Hexo搭建个人博客流程"><a href="#Hexo搭建个人博客流程" class="headerlink" title=" Hexo搭建个人博客流程"></a> Hexo搭建个人博客流程</h2><p>本流程主要针对Windows系统</p>
+<h3 id="搭建博客之前的准备工作："><a href="#搭建博客之前的准备工作：" class="headerlink" title="搭建博客之前的准备工作："></a>搭建博客之前的准备工作：</h3><h4 id="1-搭建Node-js环境"><a href="#1-搭建Node-js环境" class="headerlink" title="1. 搭建Node.js环境"></a>1. 搭建Node.js环境</h4><p>   Node.js主要用于安装hexo，Hexo是高效的静态站点生成框架，基于Node.js，所以搭建博客网站首先需要安装Node.js环境。</p>
+<p>   下载地址： <a href="http://nodejs.cn/download" target="_blank" rel="noopener">http://nodejs.cn/download </a></p>
+<p>   安装测试：win+R 打开命令行后使用node -v 、npm -v，查看显示版本号即安装成功。</p>
+<h4 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2. 安装Hexo"></a>2. 安装Hexo</h4><p>   在控制台输入如下命令：<br>    <code>npm install hexo-cli -g</code></p>
+<p>   创建放置博客文件的文件夹：Blog文件夹；在自己想要的位置创建文件夹，例如我的文件夹的位置为D:\Blog</p>
+<p>   从控制台进入Blog文件夹：依次输入 <code>D:</code>，<code>cd Blog</code></p>
+<p>   在该文件夹下下载搭建网站所需的所有文件 <code>hexo init</code></p>
+<p>   安装依赖： <code>npm install</code></p>
+<p>   生成静态文件： <code>hexo g</code></p>
+<p>   启动服务器，主要用来本地预览： <code>hexo s</code></p>
+<p>   然后用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，此时，一个本地的博客已经简单搭建完毕，hexo初始化使用的默认主题是landscape。</p>
+<h4 id="3-安装Git"><a href="#3-安装Git" class="headerlink" title="3. 安装Git"></a>3. 安装Git</h4><p>   Git是目前最流行的分布式版本控制系统，使用Git可以帮助我们把本地的网页和文章等内容提交到Gihub上，实现同步。</p>
+<p>   下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">https://git-scm.com/download/</a></p>
+<p>   安装测试： 命令行输入git –version，显示版本号即成功</p>
+<h4 id="4-注册Github帐号"><a href="#4-注册Github帐号" class="headerlink" title="4. 注册Github帐号"></a>4. 注册Github帐号</h4><p>   gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管。</p>
+<p>   注册地址：<a href="https://github.com" target="_blank" rel="noopener">https://github.com </a></p>
+<p>   流程如果不懂，就百度一下吧，用户名、邮箱和密码之后都需要用到，自己记好。</p>
+<h3 id="开始搭建博客"><a href="#开始搭建博客" class="headerlink" title="开始搭建博客"></a>开始搭建博客</h3><h4 id="1-通过Github-Pages新建一个仓库"><a href="#1-通过Github-Pages新建一个仓库" class="headerlink" title="1.通过Github Pages新建一个仓库"></a>1.通过Github Pages新建一个仓库</h4><p>   repository相当于一个仓库，用来放置代码文件。首先，登陆进入Github，并进入个人页面，点击+，选择 new repository，填写Repository name，并选择下方的public，确认 create repository。</p>
+<p>####2.部署本地文件到github ####</p>
+<p>   此时repository已经创建好了，编辑D:\Blog下的_config.yml文件，建议使用Notepad++或者sublime。</p>
+<p>   找到我们的博客仓库，并拷贝仓库地址:</p>
+<p>   <img src="https://i.imgur.com/j6WDA8N.jpg" alt=""></p>
+<p>   在_config.yml最下方，添加如下配置：（hexo的配置文件中任何’:’ 后面都是带一个空格的）</p>
+<p>   <img src="https://i.imgur.com/ckTwdlr.png" alt=""></p>
+<p>   配置好_config.yml并保存后，执行以下命令部署到Github上:</p>
+<p>   <code>hexo g #完整命令为hexo generate，用于生成静态文件</code></p>
+<p>   <code>hexo d #完整命令为hexo deploy，用于将本地文件发布到github上</code></p>
+<p>   执行上面的第二个命令，可能会要你输入用户名和密码，输入密码是不显示任何东西的，输入完毕回车即可。</p>
+<p>   此时，博客已经搭建起来，并发布到Github上了，通过访问链接：<a href="https://userName.github.io，就会发现这里的界面和本地的一样了" target="_blank" rel="noopener">https://userName.github.io，就会发现这里的界面和本地的一样了</a></p>
+<h4 id="3-发布博客"><a href="#3-发布博客" class="headerlink" title="3.发布博客"></a>3.发布博客</h4><p>   好的，我们来尝试一下发布自己的第一篇博客：</p>
+<p>   控制台进入在本地博客文件夹根目录输入：<code>hexo new &quot;第一篇博客&quot;</code></p>
+<p>   在D:\Blog\source_post中打开第一篇博客.md，打开方式使用记事本或notepad++，hexo中写文章使用的是Markdown，你可以在在使用markdown编辑文章。</p>
+<p>   写完文章后，你可以使用<code>$ hexo g</code>生成静态文件。<code>$ hexo s</code>在本地预览效果。<code>$ hexo d</code>同步到github，然后使用<a href="http://username.github.io进行访问" target="_blank" rel="noopener">http://username.github.io进行访问</a></p>
+<p>   博客网站配置及美化，以及主题更换这里就不多介绍，需要的话请多百度。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="Akirakkk" data-a="Akirakkk" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo搭建个人博客流程"><span class="toc-number">1.</span> <span class="toc-text"> Hexo搭建个人博客流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建博客之前的准备工作："><span class="toc-number">1.1.</span> <span class="toc-text">搭建博客之前的准备工作：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-搭建Node-js环境"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 搭建Node.js环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装Hexo"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装Git"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-注册Github帐号"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. 注册Github帐号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始搭建博客"><span class="toc-number">1.2.</span> <span class="toc-text">开始搭建博客</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-通过Github-Pages新建一个仓库"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.通过Github Pages新建一个仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-发布博客"><span class="toc-number">1.2.2.</span> <span class="toc-text">3.发布博客</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
