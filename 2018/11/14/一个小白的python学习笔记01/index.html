@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Akira&#39;s Blog</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,Blog,&#39;web前端&#39;,&#39;前端笔记&#39;,"> 
+    <meta name="description" content="
+ Hexo搭建个人博客流程本流程主要针对Windows系统
+搭建博客之前的准备工作：1. 搭建Node.js环境   Node.js主要用于安装hexo，Hexo是高效的静态站点生成框架，基于No,"> 
+    <meta name="author" content="Akira"> 
+    <link rel="alternative" href="atom.xml" title="Akira&#39;s Blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+</html>
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">一个小白的python学习笔记01</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">一个小白的python学习笔记01</h1>
+        <div class="stuff">
+            <span>十一月 14, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python学习笔记-python环境配置/">python学习笔记,python环境配置</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="好的，先来了解下Python吧-gt-o）"><a href="#好的，先来了解下Python吧-gt-o）" class="headerlink" title="好的，先来了解下Python吧(&gt;.o）"></a>好的，先来了解下Python吧(&gt;.o）</h1><h2 id="1-为什么要学习Python？"><a href="#1-为什么要学习Python？" class="headerlink" title="1. 为什么要学习Python？"></a>1. 为什么要学习Python？</h2><p> 兴趣！！！</p>
+<h2 id="2-python的发展历史及特点："><a href="#2-python的发展历史及特点：" class="headerlink" title="2. python的发展历史及特点："></a>2. python的发展历史及特点：</h2><p>发展历史：</p>
+<p>   Python 是由荷兰人 Guido van Rossum 在八十年代末和九十年代初，在荷兰国家数学和计算机科学研究所设计出来的。Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3、C、C++、Algol-68、SmallTalk、Unix shell 和其他的脚本语言等等。1991年，第一版基于C实现的Python编译器诞生。后来随着互联网时代的到来，开源及社区合作的方式蓬勃发展，Python也借此上了发展的快车道。发展至今，Python渐渐成了最流行的语言之一。更详细的指路：<a href="https://blog.csdn.net/xun527/article/details/80264911" target="_blank" rel="noopener">人生苦短我用python
+     </a></p>
+<p>   特点：</p>
+<pre><code>易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。
+易于阅读：Python代码定义的更清晰。
+易于维护：Python的成功在于它的源代码是相当容易维护的。
+一个广泛的标准库：Python的最大的优势之一是丰富的库，跨平台的，在UNIX，Windows和Macintosh兼容很好
+互动模式：互动模式的支持，您可以从终端输入执行代码并获得结果的语言，互动的测试和调试代码片断
+可移植：基于其开放源代码的特性，Python已经被移植（也就是使其工作）到许多平台。
+可扩展：如果你需要一段运行很快的关键代码，或者是想要编写一些不愿开放的算法，你可以使用C或C++完成那部分程序，然后从你的Python程序中调用。
+数据库：Python提供所有主要的商业数据库的接口。
+GUI编程：Python支持GUI可以创建和移植到许多系统调用。
+可嵌入: 你可以将Python嵌入到C/C++程序，让你的程序的用户获得&quot;脚本化&quot;的能力
+</code></pre><h2 id="3-python的环境搭建"><a href="#3-python的环境搭建" class="headerlink" title="3. python的环境搭建"></a>3. python的环境搭建</h2><p>   python的下载：<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">python官网</a></p>
+<p>   需要下载3.x.x和2.x.x两个版本<img src="https://img-blog.csdnimg.cn/20181029180016437.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt=""><br>   3.x.x的下载：<br>   <img src="https://img-blog.csdnimg.cn/20181029180309608.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  2.x.x的下载：<br>  <img src="https://img-blog.csdnimg.cn/20181029180621206.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   在下载列表中选择Window平台安装包，下载后，双击下载包，进入 Python 安装向导，安装非常简单，使用默认的设置一直点击”下一步”直到安装完成OK了。</p>
+<p>   Windows 下的环境变量配置：<br>   右键点击”计算机”，然后点击”属性”，点击”高级系统设置”。</p>
+<p>   选择”系统变量”窗口下面的”Path”,双击即可，然后在”Path”行，添加python安装路径(我的是E:\download\Python32) ps：路径直接用分号”；”隔开。</p>
+<p>最后设置成功以后，在cmd命令行，输入命令”python”，显示出python的相关信息，环境搭建完成。</p>
+<h2 id="4-第一个python程序来了"><a href="#4-第一个python程序来了" class="headerlink" title="4.第一个python程序来了"></a>4.第一个python程序来了</h2><p>  <img src="https://img-blog.csdnimg.cn/20181029181837737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="https://link.hhtjim.com/kw/3973101.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci="" data-cs="" data-r="" data-o="Akirakkk" data-a="Akirakkk" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#好的，先来了解下Python吧-gt-o）"><span class="toc-number">1.</span> <span class="toc-text">好的，先来了解下Python吧(&gt;.o）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-为什么要学习Python？"><span class="toc-number">1.1.</span> <span class="toc-text">1. 为什么要学习Python？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-python的发展历史及特点："><span class="toc-number">1.2.</span> <span class="toc-text">2. python的发展历史及特点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-python的环境搭建"><span class="toc-number">1.3.</span> <span class="toc-text">3. python的环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-第一个python程序来了"><span class="toc-number">1.4.</span> <span class="toc-text">4.第一个python程序来了</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
