@@ -255,6 +255,216 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://akirakk.top/2018/11/16/常用插件Fullpage-js的使用教程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Akira">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akira's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/常用插件Fullpage-js的使用教程/" itemprop="url">常用插件Fullpage.js的使用教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T16:46:01+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Fullpage-js使用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Fullpage.js使用教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>使用Fullpage做的全屏滚动网页：<a href="https://akirakk.top/fullpage-test/">https://akirakk.top/fullpage-test/</a></p>
+<h2 id="引入Fullpage"><a href="#引入Fullpage" class="headerlink" title="引入Fullpage"></a>引入Fullpage</h2><p>fullPage的github下载地址：<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="noopener">https://github.com/alvarotrigo/fullPage.js</a>。</p>
+<p>全屏插件fullPage.js依赖于jQuery，所以使用时，需要在引入fullpage.js之前，先引入jQuery。</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.3/fullpage.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;fullpage.js&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="编辑HTML"><a href="#编辑HTML" class="headerlink" title="编辑HTML"></a>编辑HTML</h2><p>使用fullPage.js时，默认情况下，每一屏幕的代码都需要有DIV包裹，其类名为section，第一个setion将作为首页显示在页面上；</p>
+<pre><code>&lt;div id=&quot;fullpage&quot;&gt;
+ &lt;div class=&quot;section&quot;&gt;section 01&lt;/div&gt;
+ &lt;div class=&quot;section&quot;&gt;section 02&lt;/div&gt;
+ &lt;div class=&quot;section&quot;&gt;section 03&lt;/div&gt;
+ &lt;div class=&quot;section&quot;&gt;section 04&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>在section中添加div.slide类，FUllpage会自动生成左右滑动的幻灯片特效;其代码如下：</p>
+<pre><code>&lt;div class=&quot;section&quot;&gt;
+  &lt;div class=&quot;slide&quot;&gt;slide 1&lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;slide 2&lt;/div&gt;
+  &lt;div class=&quot;slide&quot;&gt;slide 3&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h3 id="初识化FullPage"><a href="#初识化FullPage" class="headerlink" title="初识化FullPage"></a>初识化FullPage</h3><p>在js文件中插入：</p>
+<pre><code>$(document).ready(function() {
+   $(&apos;#fullpage&apos;).fullpage();
+});
+</code></pre><h2 id="常用参数说明"><a href="#常用参数说明" class="headerlink" title="常用参数说明"></a>常用参数说明</h2><h3 id="menu："><a href="#menu：" class="headerlink" title="menu："></a>menu：</h3><p>默认值：false，类似与Bootstrap的滚动监听，这样到滚动到某个section时，对应的导航菜单会被自动添加active类。</p>
+<p>为了让自定义导航菜单和屏幕section互动，需要给菜单添加一个HTML5的自定义属性（data-menuanchor），需要和锚文本设置相同的内容；</p>
+<pre><code>&lt;ul id=&quot;myMenu&quot;&gt;
+&lt;li data-menuanchor=&quot;Page05&quot;&gt;&lt;a href=&quot;#Page05&quot;&gt;联系&lt;/a&gt;&lt;/li&gt;
+&lt;li data-menuanchor=&quot;Page04&quot;&gt;&lt;a href=&quot;#Page04&quot;&gt;网站&lt;/a&gt;&lt;/li&gt;
+&lt;li data-menuanchor=&quot;Page03&quot;&gt;&lt;a href=&quot;#Page03&quot;&gt;设计&lt;/a&gt;&lt;/li&gt;
+&lt;li data-menuanchor=&quot;Page02&quot;&gt;&lt;a href=&quot;#Page02&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;
+&lt;li data-menuanchor=&quot;Page01&quot; class=&quot;active&quot;&gt;&lt;a href=&quot;#Page01&quot;&gt;首页&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p>在js中同样设置anchors：</p>
+<pre><code>$(&apos;#fullpage&apos;).fullpage({
+      animateAnchor:true,
+      anchors: [&apos;Page01&apos;, &apos;Page02&apos;, &apos;Page03&apos;, &apos;Page04&apos;, &apos;Page05&apos;],
+    menu: &apos;#myMenu&apos;
+})
+</code></pre><h3 id="anchor："><a href="#anchor：" class="headerlink" title="anchor："></a>anchor：</h3><p>定义导航的锚文本信息，每个导航文本之前用英文逗号（,）分隔，快速导航的锚文本URL也是使用的这个文本，浏览器通过此锚文本链接可以支持前进和后退按钮功能，如果你使用了此选项，那么网页中不能有相同的ID！</p>
+<h3 id="navigation和slidesNavigation："><a href="#navigation和slidesNavigation：" class="headerlink" title="navigation和slidesNavigation："></a>navigation和slidesNavigation：</h3><p>navigation默认值：false，如果设置为true，那他将会显示一个小圆圈组成的快速导航栏；</p>
+<p>slidesNavigation默认值：false，使用方法同navigation，是用户设置幻灯片的，不过这个参数设置的导航显示位置不同；</p>
+<h3 id="navigationPosition和slidesNavPosition："><a href="#navigationPosition和slidesNavPosition：" class="headerlink" title="navigationPosition和slidesNavPosition："></a>navigationPosition和slidesNavPosition：</h3><p>navigationPosition默认值：none，结合参数navigation一起使用，用于设置navigation定义的菜单显示的位置，可以设置为left/right；</p>
+<p>slidesNavPosition默认值：bottom，定义slidesNavigation中设置的导航菜单显示的位置，可选的设置值为top/bottom，你页可以修改CSS样式如颜色，位置等。</p>
+<h3 id="navigationTooltips，showActiveTooltip："><a href="#navigationTooltips，showActiveTooltip：" class="headerlink" title="navigationTooltips，showActiveTooltip："></a>navigationTooltips，showActiveTooltip：</h3><p>navigationTooltips 默认值：[]，定义当navigation设置为true的时候，鼠标移动到快速导航上面的提示文本，每个属性中间用英文半角逗号（,）隔开。</p>
+<p>showActiveTooltip 默认值：false，设置是否自动显示navigationTooltips中设置的工具提示文本。</p>
+<h3 id="scrollingSpeed："><a href="#scrollingSpeed：" class="headerlink" title="scrollingSpeed："></a>scrollingSpeed：</h3><p>默认值：700，每个屏幕滚动动画执行的时间，时间的单位为毫秒（ms），也可以自定义动画执行时间。</p>
+<h3 id="controlArrows："><a href="#controlArrows：" class="headerlink" title="controlArrows："></a>controlArrows：</h3><p>默认值：true，决定是否使用控制箭头向左或向右移动幻灯片。</p>
+<h3 id="resize："><a href="#resize：" class="headerlink" title="resize："></a>resize：</h3><p>默认值：true，是否在窗口改变大小后，自动调整网页中字体的大小。</p>
+<h3 id="paddingTop，paddingBottom："><a href="#paddingTop，paddingBottom：" class="headerlink" title="paddingTop，paddingBottom："></a>paddingTop，paddingBottom：</h3><p>paddingTop默认值：0，定义每个section固定的头部留白，例如设置paddingTop: ’10px’、 paddingTop: ’10em’、……，在使用固定表头的情况下有用的。</p>
+<p>paddingBottom 默认值：0，定义每个section固定的底部留白，例如设置paddingBottom: ’10px’、 paddingBottom: ’10em’、……，在使用固定底部导航的情况下有用的。</p>
+<h2 id="常用的回调函数："><a href="#常用的回调函数：" class="headerlink" title="常用的回调函数："></a>常用的回调函数：</h2><h3 id="onLeave-index-nextIndex-direction-："><a href="#onLeave-index-nextIndex-direction-：" class="headerlink" title="onLeave (index, nextIndex, direction)："></a>onLeave (index, nextIndex, direction)：</h3><p>滚动前的回调函数，index 是离开的“页面”的序号，从1开始计算；<br>nextIndex 是滚动到的“页面”的序号，从1开始计算；<br>direction 判断往上滚动还是往下滚动，值是 up 或 down；</p>
+<pre><code>onLeave: function(index, nextIndex, direction){
+
+    if(index == 1){
+        执行代码；
+    }
+</code></pre><h3 id="afterLoad-anchorLink-index-："><a href="#afterLoad-anchorLink-index-：" class="headerlink" title="afterLoad (anchorLink, index)："></a>afterLoad (anchorLink, index)：</h3><p>滚动到某一屏后的回调函数，<br>anchorLink 是锚链接的名称；<br>index 是section的索引，从1开始计算；</p>
+<p>用法同上；</p>
+<h3 id="afterSlideLoad-anchorLink-index-slideAnchor-slideIndex-："><a href="#afterSlideLoad-anchorLink-index-slideAnchor-slideIndex-：" class="headerlink" title="afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)："></a>afterSlideLoad (anchorLink, index, slideAnchor, slideIndex)：</h3><p>滚动到某一水平滑块后的回调函数，与 afterLoad 类似；</p>
+<pre><code>afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+
+if(index == 1 &amp;&amp; slideIndex==0 ){
+    执行代码；
+}
+</code></pre><h3 id="onSlideLeave-anchorLink-index-slideIndex-direction-nextSlideIndex"><a href="#onSlideLeave-anchorLink-index-slideIndex-direction-nextSlideIndex" class="headerlink" title="onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex):"></a>onSlideLeave (anchorLink, index, slideIndex, direction, nextSlideIndex):</h3><p>某一水平滑块滚动前的回调函数，与 onLeave 类似，接收 anchorLink、index、slideIndex、direction 4个参数;</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+     
+  
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://akirakk.top/2018/11/15/一个小白的python学习笔记02/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -874,7 +1084,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -885,7 +1095,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -896,7 +1106,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
