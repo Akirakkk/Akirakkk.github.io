@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://akirakk.top/"/>
-  <updated>2018-11-16T10:44:38.827Z</updated>
+  <updated>2018-11-18T14:20:24.637Z</updated>
   <id>https://akirakk.top/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript中Map,Reduce,Filter</title>
+    <link href="https://akirakk.top/2018/11/18/javascript%E4%B8%ADMap-Reduce-Filter/"/>
+    <id>https://akirakk.top/2018/11/18/javascript中Map-Reduce-Filter/</id>
+    <published>2018-11-18T09:51:35.000Z</published>
+    <updated>2018-11-18T14:20:24.637Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：<a href="https://atendesigngroup.com/blog/array-map-filter-and-reduce-js" title="链接" target="_blank" rel="noopener">https://atendesigngroup.com/blog/array-map-filter-and-reduce-js</a> 。</p><p>JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。</p><h2 id="Map："><a href="#Map：" class="headerlink" title="Map："></a>Map：</h2><a id="more"></a><p><img src="https://i.imgur.com/QE7CQl8.jpg" alt=""></p><p>map() 方法通过对原数组中的每个元素进行一定的操作（共同调用一个方法），返回一个新的数组。比如：我们要把一个数组的每个元素都变为原来的2倍，调用Array的Map方法，传入的参数为我们自己的函数，返回一个新的数组作为结果。</p><pre><code>var numbers=[1,2,3,4,5];var newNumbers=numbers.map(function(n){    return n*2;});console.log(newNumbers);  //结果为[2,4,6,8,10]</code></pre><p>利用map()把字符串变成整数:</p><pre><code>var arr=[&apos;1&apos;,&apos;2&apos;,&apos;3&apos;];var r=arr.map(Number);console.log(r); //结果为：1,2,3为什么不使用parseInt？   由于map()接收的回调函数可以有3个参数：callback(currentValue, index, array)，   通常我们仅需要第一个参数，而忽略了传入的后面两个参数。   不幸的是，parseInt(string, radix)没有忽略第二个参数，导致实际执行的函数分别是：         parseInt(&apos;0&apos;, 0); // 0, 按十进制转换         parseInt(&apos;1&apos;, 1); // NaN, 没有一进制         parseInt(&apos;2&apos;, 2); // NaN, 按二进制转换不允许出现2   可以改为r = arr.map(Number);，因为Number(value)函数仅接收一个参数。</code></pre><h2 id="Filter："><a href="#Filter：" class="headerlink" title="Filter："></a>Filter：</h2><p><img src="https://i.imgur.com/FoBKdpS.jpg" alt=""></p><p>过滤器：它用于把Array的某些元素过滤掉，结果也生成了一个新数组，但新数组的长度小于或等于原数组。</p><p>和map()类似，filter()也接收一个函数。filter()接收的回调函数，其实可以有多个参数。通常我们仅使用第一个参数，表示Array的某个元素。回调函数还可以接收另外两个参数，表示元素的位置和数组本身。</p><p>比如：我们筛选出一个数组中所有的偶数。</p><pre><code>var arr=[1,2,3,4,5,6,7,8,9];var newArr=arr.filter(function(n){   return n%2==0;});console.log(newArr); //结果为：[2,4,6,8]</code></pre><p>利用filter，可以巧妙地去除Array的重复元素。</p><pre><code>var arr=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;s&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;];var newArr=arr.filter(function(item,index,self){   return self.indexOf(item)===index;});  //indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被滤掉了console.log(newArr.toString()); //结果为：[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;s&apos;]</code></pre><h2 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce:"></a>Reduce:</h2><p><img src="https://i.imgur.com/SzvFZyS.jpg" alt=""></p><p>通过遍历一个数组的每一项累积计算出一个新东西，其内部实现应该是遍历元素，理论上也可以通过for循环或forEach方法实现其功能。</p><p>内部实现的函数作用于这个数组上，且最少接收两个参数，第一个是从上次遍历中返回的值，第二个是当前数组遍历到的元素，第一次遍历运算后的返回值又将当做第一个参数被传入到下一次遍历，其效果就是：<code>[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)</code></p><p>比如对一个Array求和，就可以用reduce实现：</p><pre><code>var arr=[1,2,3,4,5];var sum=arr.reduce(function(s,n){   return s+=n;},0);console.log(sum); //结果为：15</code></pre><h2 id="filter-、-map-和-reduce-共同点："><a href="#filter-、-map-和-reduce-共同点：" class="headerlink" title="filter 、 map 和 reduce 共同点："></a>filter 、 map 和 reduce 共同点：</h2><p>是并不会对原数组做任何改动，结果都是生成一个新变量。</p><h2 id="练习："><a href="#练习：" class="headerlink" title="练习："></a>练习：</h2><p>Map和Reduce的混合使用：</p><p>不要使用JavaScript内置的parseInt()函数，利用map和reduce操作实现一个string2int()函数</p><pre><code>function string2int(s) {   var arr=[];   for(var i=0;i&lt;s.length;i++){      arr.push(s[i]);   }   return arr.map(function(x){return x*1;}).reduce(function(x,y){     return x*10+y;   });}// 测试:if (string2int(&apos;0&apos;) === 0 &amp;&amp; string2int(&apos;12345&apos;) === 12345 &amp;&amp; string2int(&apos;12300&apos;) === 12300) {    if (string2int.toString().indexOf(&apos;parseInt&apos;) !== -1) {       alert(&apos;请勿使用parseInt()!&apos;);    } else if (string2int.toString().indexOf(&apos;Number&apos;) !== -1) {       alert(&apos;请勿使用Number()!&apos;);    } else {       alert(&apos;测试通过!&apos;);    }}else {   alert(&apos;测试失败!&apos;);}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：&lt;a href=&quot;https://atendesigngroup.com/blog/array-map-filter-and-reduce-js&quot; title=&quot;链接&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://atendesigngroup.com/blog/array-map-filter-and-reduce-js&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。&lt;/p&gt;
+&lt;h2 id=&quot;Map：&quot;&gt;&lt;a href=&quot;#Map：&quot; class=&quot;headerlink&quot; title=&quot;Map：&quot;&gt;&lt;/a&gt;Map：&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://akirakk.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://akirakk.top/tags/JavaScript/"/>
+    
+      <category term="Map" scheme="https://akirakk.top/tags/Map/"/>
+    
+      <category term="Reduce" scheme="https://akirakk.top/tags/Reduce/"/>
+    
+      <category term="Filter" scheme="https://akirakk.top/tags/Filter/"/>
+    
+  </entry>
   
   <entry>
     <title>常用插件Fullpage.js的使用教程</title>
@@ -66,9 +96,9 @@
       <category term="python" scheme="https://akirakk.top/categories/python/"/>
     
     
-      <category term="python" scheme="https://akirakk.top/tags/python/"/>
-    
       <category term="python学习笔记" scheme="https://akirakk.top/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="python" scheme="https://akirakk.top/tags/python/"/>
     
   </entry>
   
@@ -77,7 +107,7 @@
     <link href="https://akirakk.top/2018/11/14/%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%99%BD%E7%9A%84python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/"/>
     <id>https://akirakk.top/2018/11/14/一个小白的python学习笔记01/</id>
     <published>2018-11-14T14:59:53.000Z</published>
-    <updated>2018-11-15T09:52:31.327Z</updated>
+    <updated>2018-11-18T12:07:43.293Z</updated>
     
     <content type="html"><![CDATA[<h1 id="好的，先来了解下Python吧-gt-o）"><a href="#好的，先来了解下Python吧-gt-o）" class="headerlink" title="好的，先来了解下Python吧(&gt;.o）"></a>好的，先来了解下Python吧(&gt;.o）</h1><h2 id="1-为什么要学习Python？"><a href="#1-为什么要学习Python？" class="headerlink" title="1. 为什么要学习Python？"></a>1. 为什么要学习Python？</h2><p> 兴趣！！！</p><h2 id="2-python的发展历史及特点："><a href="#2-python的发展历史及特点：" class="headerlink" title="2. python的发展历史及特点："></a>2. python的发展历史及特点：</h2><p>发展历史：</p><p>   Python 是由荷兰人 Guido van Rossum 在八十年代末和九十年代初，在荷兰国家数学和计算机科学研究所设计出来的。Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3、C、C++、Algol-68、SmallTalk、Unix shell 和其他的脚本语言等等。1991年，第一版基于C实现的Python编译器诞生。后来随着互联网时代的到来，开源及社区合作的方式蓬勃发展，Python也借此上了发展的快车道。发展至今，Python渐渐成了最流行的语言之一。更详细的指路：<a href="https://blog.csdn.net/xun527/article/details/80264911" target="_blank" rel="noopener">人生苦短我用python     </a><br><a id="more"></a><br>   特点：</p><pre><code>易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。易于阅读：Python代码定义的更清晰。易于维护：Python的成功在于它的源代码是相当容易维护的。一个广泛的标准库：Python的最大的优势之一是丰富的库，跨平台的，在UNIX，Windows和Macintosh兼容很好互动模式：互动模式的支持，您可以从终端输入执行代码并获得结果的语言，互动的测试和调试代码片断可移植：基于其开放源代码的特性，Python已经被移植（也就是使其工作）到许多平台。可扩展：如果你需要一段运行很快的关键代码，或者是想要编写一些不愿开放的算法，你可以使用C或C++完成那部分程序，然后从你的Python程序中调用。数据库：Python提供所有主要的商业数据库的接口。GUI编程：Python支持GUI可以创建和移植到许多系统调用。可嵌入: 你可以将Python嵌入到C/C++程序，让你的程序的用户获得&quot;脚本化&quot;的能力</code></pre><h2 id="3-python的环境搭建"><a href="#3-python的环境搭建" class="headerlink" title="3. python的环境搭建"></a>3. python的环境搭建</h2><p>   python的下载：<a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener">python官网</a></p><p>   需要下载3.x.x和2.x.x两个版本<img src="https://img-blog.csdnimg.cn/20181029180016437.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt=""><br>   3.x.x的下载：<br>   <img src="https://img-blog.csdnimg.cn/20181029180309608.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  2.x.x的下载：<br>  <img src="https://img-blog.csdnimg.cn/20181029180621206.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   在下载列表中选择Window平台安装包，下载后，双击下载包，进入 Python 安装向导，安装非常简单，使用默认的设置一直点击”下一步”直到安装完成OK了。</p><p>   Windows 下的环境变量配置：<br>   右键点击”计算机”，然后点击”属性”，点击”高级系统设置”。</p><p>   选择”系统变量”窗口下面的”Path”,双击即可，然后在”Path”行，添加python安装路径(我的是E:\download\Python32) ps：路径直接用分号”；”隔开。</p><p>最后设置成功以后，在cmd命令行，输入命令”python”，显示出python的相关信息，环境搭建完成。</p><h2 id="4-第一个python程序来了"><a href="#4-第一个python程序来了" class="headerlink" title="4.第一个python程序来了"></a>4.第一个python程序来了</h2><p>  <img src="https://img-blog.csdnimg.cn/20181029181837737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FraXJhX0s=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
     
@@ -93,11 +123,11 @@
       <category term="python" scheme="https://akirakk.top/categories/python/"/>
     
     
-      <category term="python" scheme="https://akirakk.top/tags/python/"/>
-    
       <category term="python学习笔记" scheme="https://akirakk.top/tags/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="python环境配置" scheme="https://akirakk.top/tags/python%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="python" scheme="https://akirakk.top/tags/python/"/>
     
   </entry>
   
