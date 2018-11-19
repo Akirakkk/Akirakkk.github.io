@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://akirakk.top/"/>
-  <updated>2018-11-18T15:36:27.373Z</updated>
+  <updated>2018-11-19T09:59:23.373Z</updated>
   <id>https://akirakk.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于JavaScript闭包</title>
+    <link href="https://akirakk.top/2018/11/19/%E5%85%B3%E4%BA%8EJavaScript%E9%97%AD%E5%8C%85/"/>
+    <id>https://akirakk.top/2018/11/19/关于JavaScript闭包/</id>
+    <published>2018-11-19T07:56:39.000Z</published>
+    <updated>2018-11-19T09:59:23.373Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1.什么是闭包?"></a>1.什么是闭包?</h2><p>   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。</p><p>   em…太难懂了，我的理解是：<strong>闭包就是能够读取其他函数内部变量的函数。</strong></p><p>   这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内部定义的局部变量，而如何在函数的外部调用该函数的局部变量呢？</p><p>   比如：如何获取f1()内n的值呢：<br><a id="more"></a><br>    function f1(){<br>       var n=1;<br>       //函数内部声明变量的时候，一定要使用var命令。如果不用的话，实际上声明了一个全局变量！<br>    }<br>    alert(n) //error </p><p>   函数内部的变量即局部变量，只有函数内部的子函数才能读取，通过在函数外部调用其子函数来读取该函数的内部变量，这就是闭包，所以闭包的本质就是一座桥梁，将函数内部和函数外部连接起来。</p><pre><code>function f1(){   var n=1;   function f2(){     alert(n);  //n=1   }}</code></pre><p>   由此可见，f2可以读取f1中的局部变量，那么只要把f2作为返回值，就可以在f1外部读取它的内部变量了。</p><pre><code>function f1(){   var n=1;   function f2(){     alert(n);   }   return f2;}var func=f1();func(); //结果为：1</code></pre><h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2><h3 id="1-闭包的简单使用"><a href="#1-闭包的简单使用" class="headerlink" title="1.闭包的简单使用"></a>1.闭包的简单使用</h3><p>通常情况下，我们所写的 JavaScript 代码都是基于事件定义某种行为，然后将其添加到用户触发的事件之上（比如点击或者按键），代码通常作为回调：为响应事件而执行的函数。</p><p>假如，我们想在页面上添加一些可以调整字号的按钮：</p><pre><code>body {   font-family: Helvetica, Arial, sans-serif;   font-size: 12px;}h1 {  font-size: 1.5em;}h2 {  font-size: 1.2em;}</code></pre><p>文本尺寸调整按钮可以修改 body 元素的 font-size 属性，由于我们使用相对单位，页面中的其它元素也会相应地调整，JavaScript代码：</p><pre><code>function setSize(size) {  return function() {    document.body.style.fontSize = size + &apos;px&apos;;  };}var size12 = setSizer(12);var size14 = setSizer(14);var size16 = setSizer(16);</code></pre><p>html中添加设置字号的按钮：</p><pre><code>&lt;button id=&quot;size-12&quot;&gt;字号12&lt;/button&gt;&lt;button id=&quot;size-14&quot;&gt;字号14&lt;/button&gt;&lt;button id=&quot;size-16&quot;&gt;字号16&lt;/button&gt;</code></pre><p>将它们分别添加到按钮的点击事件上：</p><pre><code>document.getElementById(&apos;size-12&apos;).onclick = size12;document.getElementById(&apos;size-14&apos;).onclick = size14;document.getElementById(&apos;size-16&apos;).onclick = size16;</code></pre><h3 id="2-封装、实现类和继承"><a href="#2-封装、实现类和继承" class="headerlink" title="2.封装、实现类和继承"></a>2.封装、实现类和继承</h3><p>在面向对象的程序设计语言里，比如Java和C++，要在对象内部封装一个私有变量，可以用private修饰一个成员变量。在JavaScript中，没有class机制，只有函数的语言里，借助闭包，同样可以封装一个私有变量。</p><pre><code>function person(){       //变量作用域为函数内部，外部无法访问      var name = &quot;lilei&quot;;         return {         getName : function(){            return name;         },         setName : function(newName){            name = newName;         }      }    }；  var p = new Person();p.setName(&quot;Tom&quot;);alert(p.getName());  //Tomvar Jack = function(){};   Jack.prototype = new Person(); //继承自Person   Jack.prototype.Say = function(){  //添加私有方法    alert(&quot;Hello,my name is Jack&quot;);};var j = new Jack();j.setName(&quot;Jack&quot;);j.Say(); // Hello,my name is Jackalert(j.getName()); //Jack</code></pre><h2 id="使用闭包的注意点："><a href="#使用闭包的注意点：" class="headerlink" title="使用闭包的注意点："></a>使用闭包的注意点：</h2><p>1)  如果不是某些特定任务需要使用闭包，在其它函数中创建函数是不明智的，因为闭包在处理速度和内存消耗方面对脚本性能具有负面影响，造成网页的性能问题</p><p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-什么是闭包&quot;&gt;&lt;a href=&quot;#1-什么是闭包&quot; class=&quot;headerlink&quot; title=&quot;1.什么是闭包?&quot;&gt;&lt;/a&gt;1.什么是闭包?&lt;/h2&gt;&lt;p&gt;   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。&lt;/p&gt;
+&lt;p&gt;   em…太难懂了，我的理解是：&lt;strong&gt;闭包就是能够读取其他函数内部变量的函数。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;   这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内部定义的局部变量，而如何在函数的外部调用该函数的局部变量呢？&lt;/p&gt;
+&lt;p&gt;   比如：如何获取f1()内n的值呢：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://akirakk.top/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript闭包" scheme="https://akirakk.top/tags/JavaScript%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
   
   <entry>
     <title>最值得看的书籍</title>

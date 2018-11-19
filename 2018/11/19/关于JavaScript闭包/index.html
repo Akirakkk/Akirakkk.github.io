@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,Map,Reduce,Filter,">
+  <meta name="keywords" content="JavaScript闭包,">
 
 
 
@@ -81,22 +81,18 @@
 
 
 
-<meta name="description" content="最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：https://atendesigngroup.com/blog/array-map-filter-and-reduce-js 。 JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一">
-<meta name="keywords" content="JavaScript,Map,Reduce,Filter">
+<meta name="description" content="1.什么是闭包?   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。    em…太难懂了，我的理解是：闭包就是能够读取其他函数内部变量的函数。    这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内">
+<meta name="keywords" content="JavaScript闭包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript中Map,Reduce,Filter">
-<meta property="og:url" content="https://akirakk.top/2018/11/18/javascript中Map-Reduce-Filter/index.html">
+<meta property="og:title" content="关于JavaScript闭包">
+<meta property="og:url" content="https://akirakk.top/2018/11/19/关于JavaScript闭包/index.html">
 <meta property="og:site_name" content="Akira&#39;s Blog">
-<meta property="og:description" content="最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：https://atendesigngroup.com/blog/array-map-filter-and-reduce-js 。 JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一">
+<meta property="og:description" content="1.什么是闭包?   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。    em…太难懂了，我的理解是：闭包就是能够读取其他函数内部变量的函数。    这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.imgur.com/QE7CQl8.jpg">
-<meta property="og:image" content="https://i.imgur.com/FoBKdpS.jpg">
-<meta property="og:image" content="https://i.imgur.com/SzvFZyS.jpg">
-<meta property="og:updated_time" content="2018-11-18T14:20:24.637Z">
+<meta property="og:updated_time" content="2018-11-19T09:59:23.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript中Map,Reduce,Filter">
-<meta name="twitter:description" content="最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：https://atendesigngroup.com/blog/array-map-filter-and-reduce-js 。 JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一">
-<meta name="twitter:image" content="https://i.imgur.com/QE7CQl8.jpg">
+<meta name="twitter:title" content="关于JavaScript闭包">
+<meta name="twitter:description" content="1.什么是闭包?   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。    em…太难懂了，我的理解是：闭包就是能够读取其他函数内部变量的函数。    这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内">
 
 
 
@@ -126,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://akirakk.top/2018/11/18/javascript中Map-Reduce-Filter/">
+  <link rel="canonical" href="https://akirakk.top/2018/11/19/关于JavaScript闭包/">
 
 
 
 
 
-  <title>javascript中Map,Reduce,Filter | Akira's Blog</title>
+  <title>关于JavaScript闭包 | Akira's Blog</title>
   
 
 
@@ -259,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://akirakk.top/2018/11/18/javascript中Map-Reduce-Filter/">
+    <link itemprop="mainEntityOfPage" href="https://akirakk.top/2018/11/19/关于JavaScript闭包/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Akira">
@@ -276,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javascript中Map,Reduce,Filter</h1>
+          <h1 class="post-title" itemprop="name headline">关于JavaScript闭包</h1>
         
 
         <div class="post-meta">
@@ -288,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T17:51:35+08:00">
-                2018-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T15:56:39+08:00">
+                2018-11-19
               </time>
             
 
@@ -348,82 +344,90 @@
       
 
       
-        <p>最近发现了一篇好文章 ，一次性科普了Javascript中Array的三个API： filter 、 map 和 reduce ，简直太生动形象，一下子就弄懂了，这是链接：<a href="https://atendesigngroup.com/blog/array-map-filter-and-reduce-js" title="链接" target="_blank" rel="noopener">https://atendesigngroup.com/blog/array-map-filter-and-reduce-js</a> 。</p>
-<p>JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。</p>
-<h2 id="Map："><a href="#Map：" class="headerlink" title="Map："></a>Map：</h2><a id="more"></a>
-<p><img src="https://i.imgur.com/QE7CQl8.jpg" alt=""></p>
-<p>map() 方法通过对原数组中的每个元素进行一定的操作（共同调用一个方法），返回一个新的数组。比如：我们要把一个数组的每个元素都变为原来的2倍，调用Array的Map方法，传入的参数为我们自己的函数，返回一个新的数组作为结果。</p>
-<pre><code>var numbers=[1,2,3,4,5];
-var newNumbers=numbers.map(function(n){
-    return n*2;
-});
-console.log(newNumbers);  //结果为[2,4,6,8,10]
-</code></pre><p>利用map()把字符串变成整数:</p>
-<pre><code>var arr=[&apos;1&apos;,&apos;2&apos;,&apos;3&apos;];
-var r=arr.map(Number);
-console.log(r); //结果为：1,2,3
-
-为什么不使用parseInt？
-   由于map()接收的回调函数可以有3个参数：callback(currentValue, index, array)，
-   通常我们仅需要第一个参数，而忽略了传入的后面两个参数。
-   不幸的是，parseInt(string, radix)没有忽略第二个参数，导致实际执行的函数分别是：
-         parseInt(&apos;0&apos;, 0); // 0, 按十进制转换
-         parseInt(&apos;1&apos;, 1); // NaN, 没有一进制
-         parseInt(&apos;2&apos;, 2); // NaN, 按二进制转换不允许出现2
-   可以改为r = arr.map(Number);，因为Number(value)函数仅接收一个参数。
-</code></pre><h2 id="Filter："><a href="#Filter：" class="headerlink" title="Filter："></a>Filter：</h2><p><img src="https://i.imgur.com/FoBKdpS.jpg" alt=""></p>
-<p>过滤器：它用于把Array的某些元素过滤掉，结果也生成了一个新数组，但新数组的长度小于或等于原数组。</p>
-<p>和map()类似，filter()也接收一个函数。filter()接收的回调函数，其实可以有多个参数。通常我们仅使用第一个参数，表示Array的某个元素。回调函数还可以接收另外两个参数，表示元素的位置和数组本身。</p>
-<p>比如：我们筛选出一个数组中所有的偶数。</p>
-<pre><code>var arr=[1,2,3,4,5,6,7,8,9];
-var newArr=arr.filter(function(n){
-   return n%2==0;
-});
-console.log(newArr); //结果为：[2,4,6,8]
-</code></pre><p>利用filter，可以巧妙地去除Array的重复元素。</p>
-<pre><code>var arr=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;s&apos;,&apos;a&apos;,&apos;d&apos;,&apos;c&apos;];
-var newArr=arr.filter(function(item,index,self){
-   return self.indexOf(item)===index;
-}); 
- //indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被滤掉了
-console.log(newArr.toString()); //结果为：[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;s&apos;]
-</code></pre><h2 id="Reduce"><a href="#Reduce" class="headerlink" title="Reduce:"></a>Reduce:</h2><p><img src="https://i.imgur.com/SzvFZyS.jpg" alt=""></p>
-<p>通过遍历一个数组的每一项累积计算出一个新东西，其内部实现应该是遍历元素，理论上也可以通过for循环或forEach方法实现其功能。</p>
-<p>内部实现的函数作用于这个数组上，且最少接收两个参数，第一个是从上次遍历中返回的值，第二个是当前数组遍历到的元素，第一次遍历运算后的返回值又将当做第一个参数被传入到下一次遍历，其效果就是：<code>[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)</code></p>
-<p>比如对一个Array求和，就可以用reduce实现：</p>
-<pre><code>var arr=[1,2,3,4,5];
-var sum=arr.reduce(function(s,n){
-   return s+=n;
-},0);
-console.log(sum); //结果为：15
-</code></pre><h2 id="filter-、-map-和-reduce-共同点："><a href="#filter-、-map-和-reduce-共同点：" class="headerlink" title="filter 、 map 和 reduce 共同点："></a>filter 、 map 和 reduce 共同点：</h2><p>是并不会对原数组做任何改动，结果都是生成一个新变量。</p>
-<h2 id="练习："><a href="#练习：" class="headerlink" title="练习："></a>练习：</h2><p>Map和Reduce的混合使用：</p>
-<p>不要使用JavaScript内置的parseInt()函数，利用map和reduce操作实现一个string2int()函数</p>
-<pre><code>function string2int(s) {
-
-   var arr=[];
-   for(var i=0;i&lt;s.length;i++){
-      arr.push(s[i]);
+        <h2 id="1-什么是闭包"><a href="#1-什么是闭包" class="headerlink" title="1.什么是闭包?"></a>1.什么是闭包?</h2><p>   官方对闭包的解释是：一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。</p>
+<p>   em…太难懂了，我的理解是：<strong>闭包就是能够读取其他函数内部变量的函数。</strong></p>
+<p>   这里就涉及到了JavaScript中的全局变量和局部变量，在函数内部的定义的变量，它的作用域只能在该函数内部使用，这就是一个局部变量；在该函数内部既可以读取全局变量也可以用内部定义的局部变量，而如何在函数的外部调用该函数的局部变量呢？</p>
+<p>   比如：如何获取f1()内n的值呢：<br><a id="more"></a><br>    function f1(){<br>       var n=1;<br>       //函数内部声明变量的时候，一定要使用var命令。如果不用的话，实际上声明了一个全局变量！<br>    }<br>    alert(n) //error </p>
+<p>   函数内部的变量即局部变量，只有函数内部的子函数才能读取，通过在函数外部调用其子函数来读取该函数的内部变量，这就是闭包，所以闭包的本质就是一座桥梁，将函数内部和函数外部连接起来。</p>
+<pre><code>function f1(){
+   var n=1;
+   function f2(){
+     alert(n);  //n=1
    }
-   return arr.map(function(x){return x*1;}).reduce(function(x,y){
-     return x*10+y;
-   });
+}
+</code></pre><p>   由此可见，f2可以读取f1中的局部变量，那么只要把f2作为返回值，就可以在f1外部读取它的内部变量了。</p>
+<pre><code>function f1(){
+   var n=1;
+   function f2(){
+     alert(n);
+   }
+   return f2;
+}
+var func=f1();
+func(); //结果为：1
+</code></pre><h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2><h3 id="1-闭包的简单使用"><a href="#1-闭包的简单使用" class="headerlink" title="1.闭包的简单使用"></a>1.闭包的简单使用</h3><p>通常情况下，我们所写的 JavaScript 代码都是基于事件定义某种行为，然后将其添加到用户触发的事件之上（比如点击或者按键），代码通常作为回调：为响应事件而执行的函数。</p>
+<p>假如，我们想在页面上添加一些可以调整字号的按钮：</p>
+<pre><code>body {
+   font-family: Helvetica, Arial, sans-serif;
+   font-size: 12px;
 }
 
-// 测试:
-if (string2int(&apos;0&apos;) === 0 &amp;&amp; string2int(&apos;12345&apos;) === 12345 &amp;&amp; string2int(&apos;12300&apos;) === 12300) {
-    if (string2int.toString().indexOf(&apos;parseInt&apos;) !== -1) {
-       alert(&apos;请勿使用parseInt()!&apos;);
-    } else if (string2int.toString().indexOf(&apos;Number&apos;) !== -1) {
-       alert(&apos;请勿使用Number()!&apos;);
-    } else {
-       alert(&apos;测试通过!&apos;);
-    }
+h1 {
+  font-size: 1.5em;
 }
-else {
-   alert(&apos;测试失败!&apos;);
+
+h2 {
+  font-size: 1.2em;
 }
-</code></pre>
+</code></pre><p>文本尺寸调整按钮可以修改 body 元素的 font-size 属性，由于我们使用相对单位，页面中的其它元素也会相应地调整，JavaScript代码：</p>
+<pre><code>function setSize(size) {
+  return function() {
+    document.body.style.fontSize = size + &apos;px&apos;;
+  };
+}
+
+var size12 = setSizer(12);
+var size14 = setSizer(14);
+var size16 = setSizer(16);
+</code></pre><p>html中添加设置字号的按钮：</p>
+<pre><code>&lt;button id=&quot;size-12&quot;&gt;字号12&lt;/button&gt;
+&lt;button id=&quot;size-14&quot;&gt;字号14&lt;/button&gt;
+&lt;button id=&quot;size-16&quot;&gt;字号16&lt;/button&gt;
+</code></pre><p>将它们分别添加到按钮的点击事件上：</p>
+<pre><code>document.getElementById(&apos;size-12&apos;).onclick = size12;
+document.getElementById(&apos;size-14&apos;).onclick = size14;
+document.getElementById(&apos;size-16&apos;).onclick = size16;
+</code></pre><h3 id="2-封装、实现类和继承"><a href="#2-封装、实现类和继承" class="headerlink" title="2.封装、实现类和继承"></a>2.封装、实现类和继承</h3><p>在面向对象的程序设计语言里，比如Java和C++，要在对象内部封装一个私有变量，可以用private修饰一个成员变量。在JavaScript中，没有class机制，只有函数的语言里，借助闭包，同样可以封装一个私有变量。</p>
+<pre><code>function person(){    
+   //变量作用域为函数内部，外部无法访问    
+  var name = &quot;lilei&quot;;       
+
+  return {    
+     getName : function(){    
+        return name;    
+     },    
+     setName : function(newName){    
+        name = newName;    
+     }    
+  }    
+}；  
+
+var p = new Person();
+p.setName(&quot;Tom&quot;);
+alert(p.getName());  //Tom
+
+var Jack = function(){};   
+Jack.prototype = new Person(); //继承自Person   
+Jack.prototype.Say = function(){  //添加私有方法
+    alert(&quot;Hello,my name is Jack&quot;);
+};
+var j = new Jack();
+j.setName(&quot;Jack&quot;);
+j.Say(); // Hello,my name is Jack
+alert(j.getName()); //Jack
+</code></pre><h2 id="使用闭包的注意点："><a href="#使用闭包的注意点：" class="headerlink" title="使用闭包的注意点："></a>使用闭包的注意点：</h2><p>1)  如果不是某些特定任务需要使用闭包，在其它函数中创建函数是不明智的，因为闭包在处理速度和内存消耗方面对脚本性能具有负面影响，造成网页的性能问题</p>
+<p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值</p>
+
       
     </div>
     
@@ -475,13 +479,7 @@ else {
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
-          
-            <a href="/tags/Map/" rel="tag"><i class="fa fa-tag"></i> Map</a>
-          
-            <a href="/tags/Reduce/" rel="tag"><i class="fa fa-tag"></i> Reduce</a>
-          
-            <a href="/tags/Filter/" rel="tag"><i class="fa fa-tag"></i> Filter</a>
+            <a href="/tags/JavaScript闭包/" rel="tag"><i class="fa fa-tag"></i> JavaScript闭包</a>
           
         </div>
       
@@ -494,8 +492,8 @@ else {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/16/常用插件Fullpage-js的使用教程/" rel="next" title="常用插件Fullpage.js的使用教程">
-                <i class="fa fa-chevron-left"></i> 常用插件Fullpage.js的使用教程
+              <a href="/2018/11/18/一起看书吧/" rel="next" title="最值得看的书籍">
+                <i class="fa fa-chevron-left"></i> 最值得看的书籍
               </a>
             
           </div>
@@ -503,10 +501,6 @@ else {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/18/一起看书吧/" rel="prev" title="最值得看的书籍">
-                最值得看的书籍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -695,7 +689,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map："><span class="nav-number">1.</span> <span class="nav-text">Map：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter："><span class="nav-number">2.</span> <span class="nav-text">Filter：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reduce"><span class="nav-number">3.</span> <span class="nav-text">Reduce:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-、-map-和-reduce-共同点："><span class="nav-number">4.</span> <span class="nav-text">filter 、 map 和 reduce 共同点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习："><span class="nav-number">5.</span> <span class="nav-text">练习：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是闭包"><span class="nav-number">1.</span> <span class="nav-text">1.什么是闭包?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包的用途"><span class="nav-number">2.</span> <span class="nav-text">闭包的用途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-闭包的简单使用"><span class="nav-number">2.1.</span> <span class="nav-text">1.闭包的简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-封装、实现类和继承"><span class="nav-number">2.2.</span> <span class="nav-text">2.封装、实现类和继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用闭包的注意点："><span class="nav-number">3.</span> <span class="nav-text">使用闭包的注意点：</span></a></li></ol></div>
             
 
           </div>
